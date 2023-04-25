@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar, useColorScheme } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar, Text, useColorScheme, View } from 'react-native';
 
 import { Colors, Header } from 'react-native/Libraries/NewAppScreen';
 
@@ -25,6 +25,9 @@ function App() {
       />
       <ScrollView contentInsetAdjustmentBehavior="automatic" style={backgroundStyle}>
         <Header />
+        <View>
+          <Text>EsLint Example</Text>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
