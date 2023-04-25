@@ -6,9 +6,10 @@
  */
 
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar, Text, useColorScheme, View } from 'react-native';
+import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
 
-import { Colors, Header } from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import HomeScreen from './src/screens/HomeScreen';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -23,12 +24,7 @@ function App() {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ScrollView contentInsetAdjustmentBehavior="automatic" style={backgroundStyle}>
-        <Header />
-        <View>
-          <Text>EsLint Example</Text>
-        </View>
-      </ScrollView>
+      <HomeScreen />
     </SafeAreaView>
   );
 }

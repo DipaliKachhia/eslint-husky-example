@@ -1,17 +1,20 @@
 {
   "env": {
     "es2021": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "extends": ["plugin:react/recommended", "airbnb", "airbnb/hooks", "prettier"],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": 12,
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
-  "plugins": ["react", "react-native"],
+  "plugins": ["react", "react-native", "jest", "prettier", "@typescript-eslint"],
   "rules": {
     // allow .js files to contain JSX code
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
@@ -20,6 +23,32 @@
     "no-use-before-define": ["error", { "variables": false }],
 
     // ignore errors for the react-navigation package
-    "react/prop-types": ["error", { "ignore": ["navigation", "navigation.navigate"] }]
+    "react/prop-types": ["error", { "ignore": ["navigation", "navigation.navigate"] }],
+    "import/no-unresolved": ["error", { "caseSensitive": false }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never",
+        "json": "ignorePackages"
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_.+" }],
+    "no-unused-vars": [
+      "warn",
+      {
+        "varsIgnorePattern": "React"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }
